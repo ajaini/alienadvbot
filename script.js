@@ -7,13 +7,13 @@ const scriptRules = require('./script.json');
 
 module.exports = new Script({
     processing: {
-        prompt: (bot) => bot.say('Beep boop...Hi there! So you want to see if you\'re more thana bot? Just say HELLO to get started.'),
+        //prompt: (bot) => bot.say('Beep boop...Hi there! So you want to see if you\'re more than a bot? Just say HELLO to get started.'),
         receive: () => 'processing'
     },
 
     start: {
         receive: (bot) => {
-            return bot.say('Sorry didn\'t hear you. Did you say HELLO?')
+            return bot.say('Beep boop...Hi there! So you want to see if you are more than a bot? Just say HELLO to get started.')
                 .then(() => 'speak');
         }
     },
@@ -25,7 +25,7 @@ module.exports = new Script({
 
             function updateSilent() {
                 switch (upperText) {
-                    case "CONNECT ME":
+                    case "CONNECT TO TEAM":
                         return bot.setProp("silent", true);
                     case "DISCONNECT":
                         return bot.setProp("silent", false);
@@ -44,7 +44,7 @@ module.exports = new Script({
                 }
 
                 if (!_.has(scriptRules, upperText)) {
-                    return bot.say(`Trying to be adventurous eh? I'm a mere bot. Stick to the script! What's your mood like?`).then(() => 'speak');
+                    return bot.say(`Trying to be adventurous eh? I\'m a no non-sense bot. Ask me something relevant or trick me into giving off a marvellous freebie!`).then(() => 'speak');
                 }
 
                 var response = scriptRules[upperText];
